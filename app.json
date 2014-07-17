@@ -1,0 +1,8 @@
+{
+   "name": "MyApp",
+   "requires": [],
+   "id": "34240dee-3323-49c4-aa3e-b0c037e6b28b",
+   "resources": [
+      "resources/app.css"
+   ]
+}

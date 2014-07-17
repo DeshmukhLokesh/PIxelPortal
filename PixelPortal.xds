@@ -1,0 +1,99 @@
+{
+    "name": "PixelPortal",
+    "settings": {
+        "cmd": {
+            "license": "commercial",
+            "cmdVersion": "4.0.4.84",
+            "frameworkVersion": "4.2.1.883"
+        },
+        "canvasControls": {
+            "viewportSize": {
+                "name": "Auto Expand",
+                "builtIn": true,
+                "height": null,
+                "width": null
+            }
+        },
+        "urlPrefix": "http://localhost/PixelPortal/",
+        "exportPath": "C:/Users/Admin/Portal_2014_7",
+        "spacesToIndent": 4,
+        "sdkPath": "",
+        "lineEnding": "CRLF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "buildShouldOverwriteIndex": true,
+        "generateArchitectVersion": true,
+        "lastBuildSelection": {
+            "value": "webBuild",
+            "display": "Build web app"
+        },
+        "displayfield-ExtBox1-1289-inputEl": "Not Installed"
+    },
+    "xdsVersion": "3.0.4",
+    "xdsBuild": 1386,
+    "schemaVersion": 1,
+    "upgradeVersion": 300000000004,
+    "framework": "ext42",
+    "viewOrderMap": {
+        "view": [
+            "9d932a6d-ae70-451b-b3d8-f9ada503c664",
+            "50a8bdbc-f688-4ce9-a37c-aa923e83d17e",
+            "3de774eb-88c0-4ef5-be80-ff75b66b4728",
+            "920a455a-1c53-437c-995a-43e0da18fffc",
+            "a9fd3497-050e-4851-b43f-e5afcc56c9ca",
+            "bcb494ad-fba7-47ea-9136-37110c6bd7a7",
+            "bb60d91b-b86c-4fe1-acd5-f9d42c1d4be3",
+            "0e2d6545-b4f6-4a28-93ea-5193c486959a",
+            "40f2cbaa-a325-4f12-82a8-312e8c37f548",
+            "a0a30661-63ad-41d4-839a-f99a3e051b99",
+            "3018228c-8917-42bb-a3bf-0b4ad9b230c8",
+            "12461ce9-da99-4140-b8e4-93feee3dd01b",
+            "d3a2dc05-89a7-40f3-ab75-ef455df217fd",
+            "e0dfdf68-1ae3-4175-9056-fe2212d1d38e",
+            "a8a6a381-e084-4276-9223-b76ece60455b",
+            "cd27a6c8-d9f3-4414-8c76-0956ae5f8af9"
+        ],
+        "store": [
+            "65250f29-2d2c-4823-891e-59b8913881e4",
+            "16f06627-6c64-4e46-8c86-aa69cd8fea11",
+            "edf35252-4c92-40dd-9cd1-69f66e2ce768",
+            "11d8a743-802e-4a40-9b41-cca86afb8d12"
+        ],
+        "controller": [
+            "4bf356a7-864a-4d85-95da-6692a30b7cdb",
+            "085bad43-9a27-4e7f-8560-5f35e153b574",
+            "608b0068-5557-40da-90c4-e78b29fcb8d3",
+            "5168e19e-215b-400f-b073-ac56986f71bd",
+            "6ac96860-c240-489a-8a8e-a63975c4f31a",
+            "f1841199-4d07-490a-b6ba-5ed904e3c0af",
+            "1a535911-9f23-441b-8c4e-05504f54a1a7",
+            "7503e1ff-bc88-4c15-9fce-1bca322decd9",
+            "b632c0a9-34ee-4df4-a2f5-730bba907745",
+            "4ec716b5-303d-47c7-b4e0-1924355fa9ec",
+            "c9c0253d-cb7d-4def-8f1b-bf30709fd38b",
+            "5178b8d0-dec6-4155-9a57-7c314ffa3b62",
+            "10bb5aeb-4ba5-4a35-aba7-f3d8c4ba8a9d",
+            "f9b5b2cf-79a6-4901-9122-7781f8a81521",
+            "90eec6a3-cb5f-49c0-89fd-4bc58dcf1f66",
+            "87698706-285d-498a-8996-717fdb1b1ee4",
+            "8eecd78f-9ba0-4836-b016-9703842388fe",
+            "e1d0863e-1552-4fd8-9823-528aadcacc2a",
+            "0de426c3-3323-46c7-b883-75c572ff4aa9"
+        ],
+        "model": [
+            "307c68a5-8609-46e2-bbb6-6e41be72cd7a",
+            "a3039366-3075-4ea0-a642-eab0c22ea006",
+            "8c3fe63b-e5e1-4352-b126-d45b55945959"
+        ],
+        "resource": [
+            "78dfd286-f2d0-4843-9e8f-c71156230a59",
+            "6f8470cf-d898-42d4-9aca-fe9c608b69e2",
+            "251cf98d-bb6e-49b4-93aa-1b3e5cbac50d",
+            "03f45709-865e-44f3-9440-7aa98002e35c",
+            "3a9fbd1a-131b-46d8-b5ad-0bb4e8d5c10e"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}
