@@ -1,0 +1,44 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "designer|userClassName": "PackageDropDown",
+        "model": "PackageDropDown",
+        "storeId": "PackageDropDown"
+    },
+    "designerId": "65250f29-2d2c-4823-891e-59b8913881e4",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "rpcphp/packages/list.php"
+            },
+            "designerId": "89476539-5d26-4098-93ae-0c3b75450dff",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "idProperty": "id",
+                        "root": "items"
+                    },
+                    "designerId": "d9ada267-acdb-4d2f-a3c9-af0b8d1ec48b"
+                }
+            ]
+        }
+    ]
+}

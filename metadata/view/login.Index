@@ -1,0 +1,150 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "align": "center;",
+        "bodyBorder": false,
+        "bodyPadding": "",
+        "bodyStyle": null,
+        "border": false,
+        "container|columns": 2,
+        "designer|userAlias": "login",
+        "designer|userClassName": "login.Index",
+        "frameHeader": false,
+        "height": 238,
+        "layout": "table",
+        "margin": null,
+        "maxWidth": null,
+        "minWidth": null,
+        "style": "",
+        "title": "Login",
+        "titleAlign": "center",
+        "width": 364
+    },
+    "configAlternates": {
+        "style": "string",
+        "bodyStyle": "string"
+    },
+    "designerId": "50a8bdbc-f688-4ce9-a37c-aa923e83d17e",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "align",
+            "type": "string"
+        }
+    ],
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "header": false,
+                "margin": "5 5 0 5",
+                "title": "My Panel"
+            },
+            "designerId": "157152e5-2238-4a02-9d4a-79ecbb75454c",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "blankText": "Email is required field",
+                        "emptyText": "Email",
+                        "fieldLabel": null,
+                        "margin": "25 15 15 15",
+                        "name": "user",
+                        "vtype": "email",
+                        "vtypeText": "please enter an email address",
+                        "width": 320
+                    },
+                    "designerId": "8a3bd843-4173-44cf-91ab-12795a5f0cca"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "blankText": "Password is required field",
+                        "emptyText": "Password",
+                        "fieldLabel": null,
+                        "inputType": "password",
+                        "margin": "5 15 15 15",
+                        "name": "password",
+                        "width": 321
+                    },
+                    "designerId": "11149502-4696-40b1-b102-bbd903eac481"
+                },
+                {
+                    "type": "Ext.form.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "loginErrorBox",
+                        "margin": "5 15 15 15",
+                        "style": "color:red;",
+                        "text": ""
+                    },
+                    "configAlternates": {
+                        "style": "string"
+                    },
+                    "designerId": "66b3032b-e892-4e27-81ef-6a7affe7057c"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "formBind": true,
+                        "id": "submit",
+                        "itemId": "submit",
+                        "margin": "10 15 15 235",
+                        "text": "Login",
+                        "width": 70
+                    },
+                    "designerId": "752ed30a-be4a-4096-82c4-a5e55f76d512"
+                },
+                {
+                    "type": "Ext.form.field.Display",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": null,
+                        "margin": "5 10 10 10",
+                        "value": [
+                            "<span style='color:green;'><a href='#forgotpassword'>Forgot your password?</a></span>"
+                        ]
+                    },
+                    "designerId": "33f000f8-cafc-43c8-b628-4d43d76c2ba9"
+                }
+            ]
+        }
+    ]
+}

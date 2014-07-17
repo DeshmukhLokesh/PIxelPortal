@@ -1,0 +1,42 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MyPlan.Selected",
+        "model": "MyPlan.Selected",
+        "storeId": "MyPlan.Selected"
+    },
+    "designerId": "16f06627-6c64-4e46-8c86-aa69cd8fea11",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "rpcphp/packages/selected.php"
+            },
+            "designerId": "42bf6e4e-8aec-440c-8607-6839f92912f1",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "items"
+                    },
+                    "designerId": "b1cd77bc-d01f-4f6c-997e-af613b072d06"
+                }
+            ]
+        }
+    ]
+}

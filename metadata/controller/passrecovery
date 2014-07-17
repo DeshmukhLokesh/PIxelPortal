@@ -1,0 +1,165 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "passrecovery"
+    },
+    "designerId": "e1d0863e-1552-4fd8-9823-528aadcacc2a",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "Index",
+                "implHandler": [
+                    "this.getApplication().getController('BaseSession').EnableGuestView();\r",
+                    "\r",
+                    "//check if link is expired\r",
+                    "var urlHalves = String(document.location).split('?');\r",
+                    " var Halves = urlHalves[1].split('#');\r",
+                    "\r",
+                    "  Ext.Ajax.request({\r",
+                    "     url: 'php/IsPassRecoveryExp.php',\r",
+                    "     method: 'GET',\r",
+                    "     params:{\r",
+                    "              esource: Halves[0]\r",
+                    "            },\r",
+                    "     success: function(conn, response, options, eOpts)\r",
+                    "      {\r",
+                    "          \r",
+                    "           var result = MyApp.util.Util.decodeJSON(conn.responseText);\r",
+                    "\r",
+                    "           if (result.success)\r",
+                    "           {\r",
+                    "              \r",
+                    "               Ext.Router.redirect('login');\r",
+                    "               \r",
+                    "           }\r",
+                    "\r",
+                    "      }});\r",
+                    ""
+                ]
+            },
+            "designerId": "3282cbc8-dd36-49cc-9bbc-f46d193dc57e"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "application"
+                ],
+                "fn": "init",
+                "implHandler": [
+                    "this.control(\r",
+                    "            {\r",
+                    "             \"passrecovery button#resetpasssubmit\":\r",
+                    "             {click:this.onButtonClickSubmit}\r",
+                    "            });"
+                ]
+            },
+            "designerId": "50abba21-fbf4-44f4-ac0e-53da0fe0e214"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button",
+                    "options"
+                ],
+                "fn": "onButtonClickSubmit",
+                "implHandler": [
+                    " var formPanel = button.up('panel'),\r",
+                    "     passrecovery = button.up('passrecovery'),\r",
+                    "     msgBox =formPanel.down('#resetpassmsg');\r",
+                    "        \r",
+                    " var password = formPanel.down('textfield[name=password]').getValue();\r",
+                    " var confirmPassword = formPanel.down('textfield[name=confirmPassword]').getValue();\r",
+                    "\r",
+                    " var urlHalves = String(document.location).split('?');\r",
+                    " var Halves = urlHalves[1].split('#');\r",
+                    " \r",
+                    " if (formPanel.getForm().isValid()) {\r",
+                    " \r",
+                    "        Ext.get(passrecovery.getEl()).mask(\"Processing your request... Please wait...\", 'loading');\r",
+                    "\r",
+                    "        Ext.Ajax.request(\r",
+                    "            {\r",
+                    "\r",
+                    "                url: 'php/passRecovery.php',\r",
+                    "                params:\r",
+                    "                {\r",
+                    "                    password: MyApp.util.MD5.encode(password),\r",
+                    "                    esource: Halves[0]\r",
+                    "                },\r",
+                    "             success: function(conn, response, options, eOpts) {\r",
+                    "\r",
+                    "                           Ext.get(passrecovery.getEl()).unmask();\r",
+                    "\r",
+                    "                            var result = MyApp.util.Util.decodeJSON(conn.responseText);\r",
+                    "\r",
+                    "                            if (result.success) {\r",
+                    "\r",
+                    "                                formPanel.down('textfield[name=confirmPassword]').setVisible(false);\r",
+                    "                                formPanel.down('textfield[name=password]').setVisible(false);\r",
+                    "                                formPanel.down('#resetpasssubmit').setVisible(false);\r",
+                    "\r",
+                    "                                //forgotpasslabel.setVisible(false);\r",
+                    "                                msgBox.setValue(\"You have reset your password successfully.\", false);\r",
+                    "                                msgBox.show();\r",
+                    "                            }\r",
+                    "                          else\r",
+                    "                          {\r",
+                    "                                  Ext.get(passrecovery.getEl()).unmask();\r",
+                    "\r",
+                    "                              Ext.Msg.show\r",
+                    "                        ({\r",
+                    "                            title: 'failed..!',\r",
+                    "                            msg: 'Sorry, we cannot process your request at this moment. Please try later..',\r",
+                    "                            icon: Ext.Msg.ERROR,\r",
+                    "                            buttons: Ext.Msg.OK\r",
+                    "                        });\r",
+                    "\r",
+                    "                            }\r",
+                    "                        },\r",
+                    "                   failure:function(conn,response,options,eOpts)\r",
+                    "                    {\r",
+                    "                       Ext.get(passrecovery.getEl()).unmask();\r",
+                    "\r",
+                    "                        Ext.Msg.show\r",
+                    "                        ({\r",
+                    "                            title: 'Error!',\r",
+                    "                            msg: conn.responseText,\r",
+                    "                            icon: Ext.Msg.ERROR,\r",
+                    "                            buttons: Ext.Msg.OK\r",
+                    "                        });\r",
+                    "\r",
+                    "\r",
+                    "\r",
+                    "                    }\r",
+                    "                }\r",
+                    "           );\r",
+                    "         }"
+                ]
+            },
+            "designerId": "7ce42481-6530-4747-9bc9-4794bebcf761"
+        }
+    ]
+}

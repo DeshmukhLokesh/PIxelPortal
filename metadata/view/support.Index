@@ -1,0 +1,17 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": 10,
+        "designer|userClassName": "support.Index",
+        "frame": true,
+        "height": 250,
+        "title": "Support : We have yet to implement this part of the application",
+        "width": 400
+    },
+    "designerId": "e0dfdf68-1ae3-4175-9056-fe2212d1d38e"
+}

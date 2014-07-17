@@ -1,0 +1,187 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Signup"
+    },
+    "designerId": "5168e19e-215b-400f-b073-ac56986f71bd",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "Index",
+                "implHandler": [
+                    "this.getApplication().getController('BaseSession').EnableGuestView();"
+                ]
+            },
+            "designerId": "9123d135-eb7e-4189-9ffa-bccb378783d4"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "application"
+                ],
+                "fn": "init",
+                "implHandler": [
+                    "   this.control({\"button#createmyaccount\":{click:this.onButtonClickCreateMyAccount}});\r",
+                    "   this.control({\"button#checkDomain\":{click:this.onButtonClickCheckDomain}});\r",
+                    "\r",
+                    ""
+                ]
+            },
+            "designerId": "da6771a5-ef80-48ae-a4c3-a92a14be3f93"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button",
+                    "e",
+                    "options"
+                ],
+                "fn": "onButtonClickCreateMyAccount",
+                "implHandler": [
+                    "var formPanel = button.up('panel'),\r",
+                    "    register = button.up('signup'),\r",
+                    "    name = formPanel.down('textfield[name=name]').getValue(),\r",
+                    "    company = formPanel.down('textfield[name=company]').getValue();\r",
+                    "    address = formPanel.down('textfield[name=address]').getValue();\r",
+                    "    state = formPanel.down('textfield[name=state]').getValue();\r",
+                    "    city = formPanel.down('textfield[name=city]').getValue();\r",
+                    "    phone = formPanel.down('textfield[name=phone]').getValue();\r",
+                    "    email = formPanel.down('textfield[name=email]').getValue();\r",
+                    "    zip = formPanel.down('textfield[name=zip]').getValue();\r",
+                    "    domain = formPanel.down('textfield[name=domain]').getValue();\r",
+                    "    packageId = formPanel.down('textfield[name=plancombo]').getValue();\r",
+                    "    password = formPanel.down('textfield[name=password1]').getValue();\r",
+                    "   // paymentstatus= formPanel.down('radiofield[name=paymentstatus]').getValue();\r",
+                    "\r",
+                    "\r",
+                    "if(formPanel.getForm().isValid())\r",
+                    "{\r",
+                    "     Ext.get(register.getEl()).mask(\"Processing your request... Please wait...\", 'loading');\r",
+                    "\r",
+                    "    Ext.Ajax.request(\r",
+                    "        {\r",
+                    "        url:'rpcphp/clients/add.php',\r",
+                    "        params:\r",
+                    "        {\r",
+                    "             name:name,\r",
+                    "             company:company,\r",
+                    "             address:address,\r",
+                    "             state:state,\r",
+                    "             city:city,\r",
+                    "             zip:zip,\r",
+                    "             phone:phone,\r",
+                    "             email:email,\r",
+                    "             domain:domain,\r",
+                    "             packageId:packageId,\r",
+                    "             password:MyApp.util.MD5.encode(password)\r",
+                    "        },\r",
+                    "         success: function(conn, response, options, eOpts)\r",
+                    "                  {\r",
+                    "\r",
+                    "                    var result = MyApp.util.Util.decodeJSON(conn.responseText);\r",
+                    "\r",
+                    "                    if (result.code == 1)\r",
+                    "                    {\r",
+                    "\r",
+                    "                       //button.up('viewporthome').destroy();\r",
+                    "\r",
+                    "                        //Ext.create('MyApp.view.MyViewport');\r",
+                    "                          Ext.Router.redirect('myprofile');\r",
+                    "                    }\r",
+                    "                    else\r",
+                    "                    {\r",
+                    "                        if(result.messages[0].code == 112)\r",
+                    "                        {\r",
+                    "\r",
+                    "                            Ext.Msg.show\r",
+                    "                            ({\r",
+                    "                                title:'Duplicate Client Found!',\r",
+                    "                                msg:result.messages[0].msg,\r",
+                    "                                icon:Ext.Msg.INFORMATION,\r",
+                    "                                buttons:Ext.Msg.OK\r",
+                    "                            });\r",
+                    "\r",
+                    "                            Ext.get(register.getEl()).unmask();\r",
+                    "\r",
+                    "                        }\r",
+                    "                        else\r",
+                    "                        {\r",
+                    "                            Ext.Msg.show\r",
+                    "                            ({\r",
+                    "                                title:'Error!',\r",
+                    "                                msg:result.messages[0].msg,\r",
+                    "                                icon:Ext.Msg.ERROR,\r",
+                    "                                buttons:Ext.Msg.OK\r",
+                    "                            });\r",
+                    "\r",
+                    "                        }\r",
+                    "                    }\r",
+                    "                },\r",
+                    "        failure:function(conn,response,options,eOpts)\r",
+                    "                {\r",
+                    "                    Ext.get(login.getEl()).unmask();\r",
+                    "\r",
+                    "                    Ext.Msg.show\r",
+                    "                    ({\r",
+                    "                        title:'Error!',\r",
+                    "                        msg:conn.responseText,\r",
+                    "                        icon:Ext.Msg.ERROR,\r",
+                    "                        buttons:Ext.Msg.OK\r",
+                    "                    });\r",
+                    "                }\r",
+                    "        }\r",
+                    "       );\r",
+                    "}"
+                ]
+            },
+            "designerId": "800702e3-ec20-4a82-a842-01dde62f06fd"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "component",
+                    "options"
+                ],
+                "fn": "onButtonClickCheckDomain",
+                "implHandler": [
+                    "   Ext.Msg.show({\r",
+                    "                    title:'Please contact support',\r",
+                    "                    msg: 'This part of the application is yet to implement, please continue.',\r",
+                    "                    buttons: Ext.Msg.OK,\r",
+                    "                    icon: Ext.Msg.INFO\r",
+                    "                });"
+                ]
+            },
+            "designerId": "86e38df2-35d9-4191-9ef3-acec862f2755"
+        }
+    ]
+}

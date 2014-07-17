@@ -1,0 +1,97 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Myplan",
+        "models": [
+            "MyPlan.Selected",
+            "MyPlan.UnSelected"
+        ],
+        "stores": [
+            "MyPlan.Selected",
+            "MyPlan.UnSelected"
+        ]
+    },
+    "designerId": "4ec716b5-303d-47c7-b4e0-1924355fa9ec",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "application"
+                ],
+                "fn": "init",
+                "implHandler": [
+                    "  this.control({\"myplan gridpanel#gridSelectedPlan\": { render: this.onRenderSelectedPlan } });\r",
+                    "\r",
+                    "  this.control({ \"myplan gridpanel#gridUnSelectedPlan\": { render: this.onRenderUnselectedPlan } });\r",
+                    "\r",
+                    " "
+                ]
+            },
+            "designerId": "83684116-c7b4-4365-b82e-8b64e158e06f"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "Index",
+                "implHandler": [
+                    "this.getApplication().getController('BaseSession').ValidateSession();"
+                ]
+            },
+            "designerId": "45a70de1-0a98-4aa5-bcd4-a3af5d0516d1"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "component",
+                    "options"
+                ],
+                "fn": "onRenderSelectedPlan",
+                "implHandler": [
+                    "  component.getStore().load();"
+                ]
+            },
+            "designerId": "432ab714-c2f2-45b2-bfb4-0bdacec39e3b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "component",
+                    "options"
+                ],
+                "fn": "onRenderUnselectedPlan",
+                "implHandler": [
+                    "component.getStore().load();"
+                ]
+            },
+            "designerId": "0a13f5e8-57c3-4fe9-803d-7f1261ee3db9"
+        }
+    ]
+}

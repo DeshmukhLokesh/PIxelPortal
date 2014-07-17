@@ -1,0 +1,114 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": false,
+        "designer|userClassName": "TraxnHistory",
+        "storeId": "TraxnHistory"
+    },
+    "designerId": "11d8a743-802e-4a40-9b41-cca86afb8d12",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "php/clients/txnHistory.php"
+            },
+            "designerId": "ff58632a-331b-4b2f-95ab-d265c54843b2",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "items"
+                    },
+                    "designerId": "dcb64523-732e-42db-8b2c-a6d249d7a051"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "package_id"
+            },
+            "designerId": "e58b9ad9-4b0f-4dff-bc2f-5ed92b3945a1"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "user_id"
+            },
+            "designerId": "b8c5819d-8cdb-48bb-a3db-692f1545fccf"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "updated_datetime"
+            },
+            "designerId": "79c613e3-2a4c-4518-83b3-0536858e3c84"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "transaction_refrence_no"
+            },
+            "designerId": "82d03515-5df9-4908-80b9-76b411247a65"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "transaction_state"
+            },
+            "designerId": "c1845f35-9dd3-43c6-96b6-1941507f380c"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "price"
+            },
+            "designerId": "3452d7b9-f515-44a0-8d0c-a04c3e928c63"
+        }
+    ]
+}

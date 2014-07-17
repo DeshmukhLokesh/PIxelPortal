@@ -1,0 +1,29 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "support"
+    },
+    "designerId": "8eecd78f-9ba0-4836-b016-9703842388fe",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "Index",
+                "implHandler": [
+                    "this.getApplication().getController('BaseSession').EnableGuestView();"
+                ]
+            },
+            "designerId": "12dfef7c-d86b-4bea-be09-8246f7468bd8"
+        }
+    ]
+}

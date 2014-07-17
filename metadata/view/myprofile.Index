@@ -1,0 +1,311 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": 10,
+        "border": false,
+        "designer|userAlias": "myprofile",
+        "designer|userClassName": "myprofile.Index",
+        "header": false,
+        "height": 441,
+        "layout": "column",
+        "title": "My Form",
+        "width": 960
+    },
+    "designerId": "a9fd3497-050e-4851-b43f-e5afcc56c9ca",
+    "cn": [
+        {
+            "type": "Ext.form.FieldContainer",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "left",
+                "fieldLabel": null,
+                "height": 159,
+                "layout": "anchor",
+                "width": 202
+            },
+            "designerId": "86968ac5-b8bc-4e5f-8758-950725802b01",
+            "cn": [
+                {
+                    "type": "Ext.Img",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 137,
+                        "itemId": "userPicture",
+                        "src": "./resources/user-icon.png",
+                        "width": 201
+                    },
+                    "designerId": "c900adbb-86ec-44c1-864f-193ebb1b70bc"
+                },
+                {
+                    "type": "Ext.form.field.File",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "buttonOnly": true,
+                        "buttonText": "Change",
+                        "fieldLabel": null,
+                        "margin": "5 0 0 70",
+                        "name": "fileUser",
+                        "width": 52
+                    },
+                    "designerId": "ab61d3f4-af26-46cb-b348-8cdee3fb0564",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onFilefieldChange",
+                                "implHandler": [
+                                    "   var file = filefield.fileInputEl.dom.files[0];\r",
+                                    "\r",
+                                    " if (typeof FileReader !== \"undefined\" && (/image/i).test(file.type))\r",
+                                    " {\r",
+                                    "\r",
+                                    "     var reader = new FileReader();\r",
+                                    "     reader.onload =function(e){\r",
+                                    "      Ext.ComponentQuery.query('#userPicture')[0].setSrc(e.target.result);\r",
+                                    "         //picture.setSrc(e.target.result);\r",
+                                    "         // picture.dom.src = e.target.result;\r",
+                                    "\r",
+                                    "\r",
+                                    "     };\r",
+                                    "\r",
+                                    "     reader.readAsDataURL(file);\r",
+                                    " }\r",
+                                    "else if(!(/image/i).test(file.type))\r",
+                                    "{Ext.Msg.alert('Warning','You can only upload image files!');\r",
+                                    " filefield.reset();\r",
+                                    "}\r",
+                                    ""
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "designerId": "acc05d04-48e4-46a6-8623-f74c29613759"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.FieldContainer",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|columns": 2,
+                "defaults": [
+                    "{\r",
+                    "    'margin': '15 0 0 15' \r",
+                    "}"
+                ],
+                "dock": "left",
+                "fieldLabel": null,
+                "height": 120,
+                "layout": "table",
+                "width": 761
+            },
+            "designerId": "e7bcd0dc-2bbc-412b-aa42-d5286697d78b",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Display",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": null,
+                        "fieldStyle": "font-weight: bold;",
+                        "layout|colspan": 2,
+                        "name": "fullName",
+                        "value": [
+                            "................."
+                        ]
+                    },
+                    "designerId": "ca499766-53b2-4e0e-8280-da5366cdfd3f"
+                },
+                {
+                    "type": "Ext.form.field.Display",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": null,
+                        "layout|colspan": 2,
+                        "name": "email",
+                        "value": [
+                            "................."
+                        ]
+                    },
+                    "designerId": "9bce5eab-aaf9-43d6-990f-d25d8928de71"
+                },
+                {
+                    "type": "Ext.form.field.Display",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": null,
+                        "layout|colspan": 2,
+                        "name": "packageDetail"
+                    },
+                    "designerId": "d2704912-fa8b-4bfe-934d-ce899b22ebdb"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "fieldLabel": "First Name *",
+                        "labelWidth": 75,
+                        "maxLength": 30,
+                        "msgTarget": "under",
+                        "name": "firstName",
+                        "width": 350
+                    },
+                    "designerId": "3bc37df6-c8b4-461f-add1-42542fc87f07"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "fieldLabel": "Last Name *",
+                        "labelWidth": 75,
+                        "maxLength": 30,
+                        "msgTarget": "under",
+                        "name": "lastName",
+                        "width": 350
+                    },
+                    "designerId": "db727c20-78e2-4bb3-9ee2-15ebd31e3fa3"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "fieldLabel": "Phone *",
+                        "labelWidth": 75,
+                        "margin": "25 0 0 15",
+                        "maxLength": 15,
+                        "msgTarget": "under",
+                        "name": "phone",
+                        "width": 350
+                    },
+                    "designerId": "511dd940-4e10-4d1a-8333-1330e5780352"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "fieldLabel": "Company *",
+                        "itemId": null,
+                        "labelWidth": 75,
+                        "margin": "25 0 0 15",
+                        "maxLength": 50,
+                        "msgTarget": "under",
+                        "name": "company",
+                        "width": 350
+                    },
+                    "designerId": "cd99eac8-2916-452f-877d-37a0dd7a3c12"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "saveprofile",
+                        "itemId": "saveprofile",
+                        "margin": "25 0 0 95",
+                        "scale": "medium",
+                        "text": "Save Changes"
+                    },
+                    "designerId": "64dd3c4f-a7f4-4f8b-973b-5cb3f7073b5c"
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onFormRender",
+                "implHandler": [
+                    "\r",
+                    "\r",
+                    "var frm = this.getForm();\r",
+                    "\r",
+                    "        Ext.Ajax.request({\r",
+                    "        url:'rpcphp/clients/editForm.php',\r",
+                    "        method:'POST',\r",
+                    "        success:function(result,request){\r",
+                    "           json=Ext.decode(result.responseText,1);\r",
+                    "           frm.setValues(json); // form population\r",
+                    "                            // triggers change listeners\r",
+                    "             Ext.ComponentQuery.query('#userPicture')[0].setSrc('resources/ProfileImages/' + json.picture);\r",
+                    "        }\r",
+                    "    });\r",
+                    "\r",
+                    ""
+                ],
+                "name": "render",
+                "scope": "me"
+            },
+            "designerId": "c035cca3-2455-4a52-bb20-e7079f64174e"
+        }
+    ]
+}

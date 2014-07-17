@@ -1,0 +1,29 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Home"
+    },
+    "designerId": "4bf356a7-864a-4d85-95da-6692a30b7cdb",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "index",
+                "implHandler": [
+                    "Ext.Router.redirect('login');"
+                ]
+            },
+            "designerId": "ed9e9d95-f8c1-4d5f-af21-a3838f1984f2"
+        }
+    ]
+}

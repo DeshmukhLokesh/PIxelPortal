@@ -1,0 +1,490 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": 10,
+        "container|align": "stretch",
+        "designer|userAlias": "myplan",
+        "designer|userClassName": "myplan.Index",
+        "height": 665,
+        "layout": "vbox",
+        "title": "Manage My Plan",
+        "width": 1148
+    },
+    "designerId": "bb60d91b-b86c-4fe1-acd5-f9d42c1d4be3",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "collapseFirst": false,
+                "collapsible": true,
+                "itemId": "panelSelectedPlan",
+                "layout": "fit",
+                "layout|flex": 1,
+                "title": "Selected Plan"
+            },
+            "designerId": "5a0bfdc3-ce9f-4de3-9f39-59037add2c2d",
+            "cn": [
+                {
+                    "type": "Ext.grid.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "header": false,
+                        "id": "gridSelectedPlan",
+                        "itemId": "gridSelectedPlan",
+                        "store": "MyPlan.Selected",
+                        "title": "My Grid Panel"
+                    },
+                    "designerId": "d049f8dc-ed97-4194-8e58-71bddc8de2b5",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.RowNumberer",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "text": "Sr No.",
+                                "width": 40
+                            },
+                            "designerId": "0086d859-02f0-4fea-97e5-c17e48e7730e"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "id_packages",
+                                "hidden": true,
+                                "text": "id"
+                            },
+                            "designerId": "3f42249a-f2df-4ef1-be0c-7f3804e029cd"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "package_name",
+                                "text": "Package Name",
+                                "width": 210
+                            },
+                            "designerId": "2cba6a49-0336-4069-834b-07f0f2808b89"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "activation_dt",
+                                "text": "Activation Date",
+                                "width": 165
+                            },
+                            "designerId": "3eaeb808-243a-4ba0-940b-572b8ea4c410"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "expire_dt",
+                                "text": "Expire Date",
+                                "width": 165
+                            },
+                            "designerId": "ffeb99c4-33fe-4ed8-9597-f28f8ff63627"
+                        },
+                        {
+                            "type": "Ext.grid.column.Number",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "activation_fee",
+                                "format": "0.00",
+                                "hidden": true,
+                                "renderer": null,
+                                "text": "Activation Fee",
+                                "width": 170
+                            },
+                            "configAlternates": {
+                                "renderer": "object"
+                            },
+                            "designerId": "3bdd3c44-878a-4f2b-bb48-ad3595bdad0d",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "renderer",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.grid.column.Number",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "periodical_fee",
+                                "format": "0.00",
+                                "text": "Periodical Fee"
+                            },
+                            "designerId": "61f6e54a-244b-488c-9fd3-b55cf9abb1a2"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "period",
+                                "text": "Period"
+                            },
+                            "designerId": "3099629e-5fbd-4a3d-8e4a-4fafab66d0c4"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "align": "center",
+                                "dataIndex": "IsSubscribed",
+                                "text": "Is Subscribed"
+                            },
+                            "designerId": "77a58332-0ef1-4caa-bdba-399b6c9f943e",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "value",
+                                            "metaData",
+                                            "record",
+                                            "rowIndex",
+                                            "colIndex",
+                                            "store",
+                                            "view"
+                                        ],
+                                        "fn": "renderer",
+                                        "implHandler": [
+                                            "if (!value)\r",
+                                            "{\r",
+                                            "    \r",
+                                            "     return '<img src=\"resources/Subscribed.png\"/>';\r",
+                                            "    \r",
+                                            "    //  return '<span style=\"color:green;\"><b> Subscribed </b></span>';\r",
+                                            "}\r",
+                                            "  else\r",
+                                            "  {\r",
+                                            "      return '<img src=\"resources/UnSubscribed.png\"/>';\r",
+                                            "   //  return '<span style=\"color:red;\"><b> Un Subscribed </b></span>';\r",
+                                            "  }"
+                                        ]
+                                    },
+                                    "designerId": "f5c8897b-ae5f-4564-a1ba-67a9cc1c8744"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "align": "right",
+                                "dataIndex": "IsSubscribed",
+                                "text": null,
+                                "width": 170
+                            },
+                            "designerId": "0b2b7947-73ce-44af-a725-27219dcd98e6",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "value",
+                                            "metaData",
+                                            "record",
+                                            "rowIndex",
+                                            "colIndex",
+                                            "store",
+                                            "view"
+                                        ],
+                                        "fn": "renderer",
+                                        "implHandler": [
+                                            "\r",
+                                            "if (record.get('IsSubscribed')) {\r",
+                                            "       var linkToPayPal = \"php/paypal/payments/CreatePaymentUsingPayPal.php?pkgId=\" + record.get('id'),\r",
+                                            "           link = 'Subscribe Now';\r",
+                                            "       return '<a href=\"' + linkToPayPal + '\"><span style=\"color:green;\"><b> <img src=\"https://www.paypalobjects.com/webstatic/en_US/btn/btn_buynow_pp_142x27.png\"/> </b></span></a>';\r",
+                                            "     }\r",
+                                            "  else\r",
+                                            "       return '<span style=\"color:red;\"><b>  </b></span>';\r",
+                                            ""
+                                        ]
+                                    },
+                                    "designerId": "e2b6cc92-8cfd-4c76-a2f8-8ba68be433cd"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.grid.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "designerId": "da81d6ef-10e9-4d86-89b0-205821724446"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "collapseFirst": false,
+                "collapsible": true,
+                "itemId": "panelUnSelectedPlan",
+                "layout": "fit",
+                "layout|flex": 1,
+                "title": "Un-selected Plan"
+            },
+            "designerId": "fe573e34-db18-4cc8-a0ad-ee774ee375e7",
+            "cn": [
+                {
+                    "type": "Ext.grid.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "header": false,
+                        "id": "gridUnSelectedPlan",
+                        "itemId": "gridUnSelectedPlan",
+                        "store": "MyPlan.UnSelected",
+                        "title": "My Grid Panel"
+                    },
+                    "designerId": "ba96ea57-db5c-433a-b8dd-f593e7644745",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.RowNumberer",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "text": "Sr No.",
+                                "width": 43
+                            },
+                            "designerId": "ff0726ff-0688-4264-bf2d-2b6c3975282f"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "id_packages",
+                                "hidden": true,
+                                "text": "id"
+                            },
+                            "designerId": "3b8212e2-d04b-4917-a701-c07e2e59e688"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "name",
+                                "text": "Package Name",
+                                "width": 206
+                            },
+                            "designerId": "ada7cf27-0992-4695-885b-3f37aec1e602"
+                        },
+                        {
+                            "type": "Ext.grid.column.Number",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "activation_fee",
+                                "format": "0.00",
+                                "text": "Activation Fee",
+                                "width": 116
+                            },
+                            "designerId": "c283da19-933a-4de2-b119-930788ba9d36"
+                        },
+                        {
+                            "type": "Ext.grid.column.Number",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "periodical_fee",
+                                "format": "0.00",
+                                "text": "Periodical Fee",
+                                "width": 124
+                            },
+                            "designerId": "b0ca6112-45e2-4800-a13c-d71579795eaa"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "period",
+                                "text": "Period"
+                            },
+                            "designerId": "ee32ebc8-4b2a-46a2-8353-3a875e32bc22",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "value",
+                                            "metaData",
+                                            "record",
+                                            "rowIndex",
+                                            "colIndex",
+                                            "store",
+                                            "view"
+                                        ],
+                                        "fn": "renderer",
+                                        "implHandler": [
+                                            "return value;"
+                                        ]
+                                    },
+                                    "designerId": "4d88211e-ad99-47ed-834b-699fd898cfd5"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "align": "center",
+                                "dataIndex": "IsSubscribed",
+                                "text": "",
+                                "width": 170
+                            },
+                            "designerId": "0a12e1ca-2f22-40bb-ac03-62e53f0eda33",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "value",
+                                            "metaData",
+                                            "record",
+                                            "rowIndex",
+                                            "colIndex",
+                                            "store",
+                                            "view"
+                                        ],
+                                        "fn": "renderer",
+                                        "implHandler": [
+                                            "  var linkToPayPal = \"php/paypal/payments/CreatePaymentUsingPayPal.php?pkgId=\" + record.get('id'),\r",
+                                            "      link = 'Subscribe Now';\r",
+                                            "  return '<a href=\"' + linkToPayPal + '\"><span style=\"color:green;\"><b><img src=\"https://www.paypalobjects.com/webstatic/en_US/btn/btn_buynow_pp_142x27.png\"/>  </b></span></a>';\r",
+                                            ""
+                                        ]
+                                    },
+                                    "designerId": "b1b58f69-4fd4-4884-afb7-758f0a7d9c16"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.grid.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "designerId": "062062fa-433a-4605-a28e-8202b9a8bac5"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": 10,
+        "designer|userAlias": "accountconfirm",
+        "designer|userClassName": "accountconfirm.Index",
+        "header": false,
+        "title": "My Form"
+    },
+    "designerId": "a8a6a381-e084-4276-9223-b76ece60455b",
+    "cn": [
+        {
+            "type": "Ext.form.field.Display",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": null,
+                "height": 50,
+                "itemId": "accountconfirmMsg",
+                "labelWidth": null,
+                "value": [
+                    "'Thanks for registering at Pixel River! We are glad you have chosen to be a part of our community and we hope you enjoy your stay.<br/><br/> All the best, Pixel River Technology <br/><br/> <a href=\"#login\">Click here to login</a> '"
+                ],
+                "width": 727
+            },
+            "designerId": "ff5ceb16-0213-4099-93f3-95d60f3fb49c"
+        }
+    ]
+}

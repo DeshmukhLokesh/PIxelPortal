@@ -1,0 +1,69 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Txnhistory",
+        "stores": [
+            "TraxnHistory"
+        ]
+    },
+    "designerId": "c9c0253d-cb7d-4def-8f1b-bf30709fd38b",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "Index",
+                "implHandler": [
+                    "this.getApplication().getController('BaseSession').ValidateSession();"
+                ]
+            },
+            "designerId": "259fa6d4-87d9-4c6c-992d-636db8c670fe"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "application"
+                ],
+                "fn": "init",
+                "implHandler": [
+                    "   this.control({\"txnhistory gridpanel#gridPanelTxnHistory\": { render: this.onRenderTxnHistory } });"
+                ]
+            },
+            "designerId": "9fff95f8-0ec2-4eb6-830c-02c98444111e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "component",
+                    "options"
+                ],
+                "fn": "onRenderTxnHistory",
+                "implHandler": [
+                    "component.getStore().load();"
+                ]
+            },
+            "designerId": "c95879fa-9d54-4733-8300-25365264466a"
+        }
+    ]
+}

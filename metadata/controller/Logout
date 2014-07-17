@@ -1,0 +1,102 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Logout"
+    },
+    "designerId": "f1841199-4d07-490a-b6ba-5ed904e3c0af",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "application"
+                ],
+                "fn": "init",
+                "implHandler": [
+                    "this.control(\r",
+                    "            {\r",
+                    "             \"#logoutmenuItem\":\r",
+                    "             {click:this.onButtonClickLogout}\r",
+                    "            });"
+                ]
+            },
+            "designerId": "80bbc379-1ae9-4573-9155-1648473ac865"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button",
+                    "e",
+                    "options"
+                ],
+                "fn": "onButtonClickLogout",
+                "implHandler": [
+                    "\r",
+                    "Ext.Ajax.request({\r",
+                    "\r",
+                    "            url:'php/logout.php',\r",
+                    "\r",
+                    "            success:function(conn,response,options,eOpts)\r",
+                    "            {\r",
+                    "                var result= MyApp.util.Util.decodeJSON(conn.responseText,true);\r",
+                    "                if(!result)\r",
+                    "                {\r",
+                    "                    result = {};\r",
+                    "                    result.success = false;\r",
+                    "                    result.msg = conn.responseText;\r",
+                    "                }\r",
+                    "\r",
+                    "                if(result.success)\r",
+                    "                {\r",
+                    "\r",
+                    "                    //Clear the cookie\r",
+                    "                    Ext.state.Manager.clear(\"loggedUserName\");\r",
+                    "                    Ext.state.Manager.clear(\"IsUserloggedIn\");\r",
+                    "\r",
+                    "\r",
+                    "                    Ext.Router.redirect('login');\r",
+                    "                }\r",
+                    "                else\r",
+                    "                {\r",
+                    "                    Ext.Msg.show(\r",
+                    "                        {\r",
+                    "                            title:'Error!' ,\r",
+                    "                            msg:result.msg,\r",
+                    "                            icon:Ext.Msg.ERROR,\r",
+                    "                            buttons:Ext.Msg.OK\r",
+                    "                        });\r",
+                    "                }\r",
+                    "            },\r",
+                    "            failure:function(conn,response,options,eOpts)\r",
+                    "                {\r",
+                    "                 Ext.Msg.show(\r",
+                    "                        {\r",
+                    "                            title:'Error!' ,\r",
+                    "                            msg:conn.responseText,\r",
+                    "                            icon:Ext.Msg.ERROR,\r",
+                    "                            buttons:Ext.Msg.OK\r",
+                    "                        });\r",
+                    "                }\r",
+                    "        });"
+                ]
+            },
+            "designerId": "de4c67be-0349-4d08-901c-c8d5dbc1583c"
+        }
+    ]
+}

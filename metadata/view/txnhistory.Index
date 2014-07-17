@@ -1,0 +1,128 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": 10,
+        "designer|userAlias": "txnhistory",
+        "designer|userClassName": "txnhistory.Index",
+        "height": 576,
+        "layout": "fit",
+        "title": "My Transaction History",
+        "width": 889
+    },
+    "designerId": "0e2d6545-b4f6-4a28-93ea-5193c486959a",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "emptyText": "Sr No.",
+                "header": false,
+                "id": "gridPanelTxnHistory",
+                "itemId": "gridPanelTxnHistory",
+                "store": "TraxnHistory",
+                "title": "My Grid Panel"
+            },
+            "designerId": "3ad85794-2af7-4aca-98a1-24959e4595ac",
+            "cn": [
+                {
+                    "type": "Ext.grid.RowNumberer",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "text": "Sr No.",
+                        "width": 47
+                    },
+                    "designerId": "a441db91-0df3-4481-b0ab-f23046890e67"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "transaction_refrence_no",
+                        "text": "Transaction Refrence No",
+                        "width": 183
+                    },
+                    "designerId": "a7d28196-e0b3-4159-88a8-e94e955015bd"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "price",
+                        "format": "0.00",
+                        "renderer": null,
+                        "text": "Amount"
+                    },
+                    "configAlternates": {
+                        "renderer": "object"
+                    },
+                    "designerId": "9a78f67b-9418-47cb-aec3-3b6c1fd19df9",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "renderer",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "updated_datetime",
+                        "text": "Updated Date Time",
+                        "width": 148
+                    },
+                    "designerId": "91425c23-a302-4614-a975-17cc5304f0b2"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "transaction_state",
+                        "text": "Transaction State",
+                        "width": 129
+                    },
+                    "designerId": "f9da5a5b-ebb2-4002-849f-d8f0f5cf4b44"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "designerId": "dfbb9f6f-c814-4152-b01f-48c964020c35"
+                }
+            ]
+        }
+    ]
+}

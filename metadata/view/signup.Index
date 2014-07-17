@@ -1,0 +1,614 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": 10,
+        "designer|userAlias": "signup",
+        "designer|userClassName": "signup.Index",
+        "frameHeader": false,
+        "height": 710,
+        "title": "Sign Up",
+        "titleAlign": "center",
+        "width": 580
+    },
+    "designerId": "920a455a-1c53-437c-995a-43e0da18fffc",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "border": null,
+                "collapsible": true,
+                "defaults": [
+                    "{\r",
+                    "    'margin':'15 0 0 25',\r",
+                    "    'msgTarget':'under'\r",
+                    "\r",
+                    "}\r",
+                    ""
+                ],
+                "dock": null,
+                "height": 291,
+                "layout": "column",
+                "style": "",
+                "title": "Basic Information",
+                "width": 555
+            },
+            "configAlternates": {
+                "style": "string",
+                "bodyStyle": "string"
+            },
+            "designerId": "1d9c1101-8557-4782-8862-0e81f627c139",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "emptyText": "Full Name *",
+                        "fieldLabel": null,
+                        "itemId": "name",
+                        "margin": null,
+                        "msgTarget": null,
+                        "name": "name",
+                        "width": 500
+                    },
+                    "designerId": "50b8b726-30ef-4de4-b6d7-087b55580edf",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value"
+                                ],
+                                "fn": "validator",
+                                "implHandler": [
+                                    "  if (!(/[a-zA-Z\\s]+$/.test(value)))\r",
+                                    "  {\r",
+                                    "    return \"This Field should be in alphabets\";\r",
+                                    "  }\r",
+                                    "  else\r",
+                                    "  {\r",
+                                    "   // alert(v);\r",
+                                    "    //return \"Sorry\";\r",
+                                    "  }\r",
+                                    "  return true;"
+                                ]
+                            },
+                            "designerId": "3ddffe59-d469-4162-a47f-934f2dbdf913"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onNameBlur",
+                                "implHandler": [
+                                    "var formPanel = this.up('panel');\r",
+                                    "  var newVal = formPanel.down('#name').getValue();\r",
+                                    "//alert(newVal);\r",
+                                    "\r",
+                                    "   Ext.Ajax.request({\r",
+                                    "                       url: 'php/checkDupUserName.php',\r",
+                                    "                       method: 'GET',\r",
+                                    "                        params:\r",
+                                    "                                                    {\r",
+                                    "                                                        user: newVal\r",
+                                    "                                                    },\r",
+                                    "\r",
+                                    "\r",
+                                    "        success: function(conn, response, options, eOpts) {\r",
+                                    "\r",
+                                    "\r",
+                                    "\r",
+                                    "                            var result = MyApp.util.Util.decodeJSON(conn.responseText);\r",
+                                    "\r",
+                                    "                            if (result.success) {\r",
+                                    "\r",
+                                    "                                Ext.Msg.show\r",
+                                    "                                                                ({\r",
+                                    "                                                                    title: 'Duplicate User Name Found!',\r",
+                                    "                                                                    msg: 'We have already registered user with this User Name.',\r",
+                                    "                                                                    icon: Ext.Msg.ERROR,\r",
+                                    "                                                                    buttons: Ext.Msg.OK\r",
+                                    "                                                                });\r",
+                                    "                                                        Ext.ComponentQuery.query('textfield#name')[0].focus(true, 200);\r",
+                                    "\r",
+                                    "\r",
+                                    "                            }\r",
+                                    "\r",
+                                    "                        }\r",
+                                    "\r",
+                                    "                                            });"
+                                ],
+                                "name": "blur",
+                                "scope": "me"
+                            },
+                            "designerId": "776e3de6-f8ce-41d4-a043-593b9079d9ea"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "emptyText": "Company *",
+                        "fieldLabel": null,
+                        "itemId": "company",
+                        "margin": null,
+                        "msgTarget": null,
+                        "name": "company",
+                        "width": 500
+                    },
+                    "designerId": "0c300c7c-510f-49f5-8539-2cd5a56e9aa4"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "Address",
+                        "fieldLabel": null,
+                        "itemId": "address",
+                        "name": "address",
+                        "width": 500
+                    },
+                    "designerId": "4f09c809-4690-474e-83a3-483f228f84b5"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "City",
+                        "fieldLabel": null,
+                        "itemId": "city",
+                        "name": "city"
+                    },
+                    "designerId": "b555f3d9-451a-428e-9cbe-b50d26ff3071"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "State",
+                        "fieldLabel": null,
+                        "itemId": "state",
+                        "name": "state"
+                    },
+                    "designerId": "b4e54433-8f92-48d5-b66a-2be6fc8618b9"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "Zip",
+                        "fieldLabel": null,
+                        "itemId": "zip",
+                        "name": "zip",
+                        "width": 116
+                    },
+                    "designerId": "cab94a22-5905-445e-af62-61aff0427b10"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "Phone",
+                        "fieldLabel": null,
+                        "itemId": "phone",
+                        "msgTarget": "side",
+                        "name": "phone",
+                        "width": 320
+                    },
+                    "designerId": "4bf1dee8-0888-4cbb-86d7-32d7e3be31fa"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "emptyText": "Email Address *",
+                        "fieldLabel": null,
+                        "itemId": "email",
+                        "msgTarget": null,
+                        "name": "email",
+                        "vtype": "email",
+                        "vtypeText": "Please enter an email address",
+                        "width": 320
+                    },
+                    "designerId": "e08ae2b5-59de-4810-9812-ed553a4411b4",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onEmailBlur",
+                                "implHandler": [
+                                    "var formPanel = this.up('panel');\r",
+                                    "  var newVal = formPanel.down('#email').getValue();\r",
+                                    "//alert(newVal);\r",
+                                    "\r",
+                                    "   Ext.Ajax.request({\r",
+                                    "                       url: 'php/checkDupEmail.php',\r",
+                                    "                       method: 'GET',\r",
+                                    "                        params:\r",
+                                    "                                                    {\r",
+                                    "                                                        email: newVal\r",
+                                    "                                                    },\r",
+                                    "\r",
+                                    "\r",
+                                    "        success: function(conn, response, options, eOpts) {\r",
+                                    "\r",
+                                    "\r",
+                                    "\r",
+                                    "                            var result = MyApp.util.Util.decodeJSON(conn.responseText);\r",
+                                    "\r",
+                                    "                            if (result.success) {\r",
+                                    "\r",
+                                    "                                Ext.Msg.show\r",
+                                    "                                                                ({\r",
+                                    "                                                                    title: 'Duplicate Email Found!',\r",
+                                    "                                                                    msg: 'We have already registered user with this Email Address.',\r",
+                                    "                                                                    icon: Ext.Msg.ERROR,\r",
+                                    "                                                                    buttons: Ext.Msg.OK\r",
+                                    "                                                                });\r",
+                                    "                                                        Ext.ComponentQuery.query('textfield#email')[0].focus(true, 200);\r",
+                                    "\r",
+                                    "\r",
+                                    "                            }\r",
+                                    "\r",
+                                    "                        }\r",
+                                    "\r",
+                                    "                                            });"
+                                ],
+                                "name": "blur",
+                                "scope": "me"
+                            },
+                            "designerId": "da0c7281-aee7-47d9-a7aa-4a189dbd93ae"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyBorder": false,
+                "bodyStyle": null,
+                "border": null,
+                "collapseFirst": false,
+                "collapsible": true,
+                "defaults": [
+                    "{'msgTarget':'under'}"
+                ],
+                "dock": null,
+                "frameHeader": false,
+                "height": 120,
+                "style": null,
+                "title": "Choose your plan [ It can be changed at any time ]",
+                "width": 555
+            },
+            "configAlternates": {
+                "style": "string",
+                "bodyStyle": "string"
+            },
+            "designerId": "8abc5941-2f89-4a87-8724-86acc369ffac",
+            "cn": [
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "displayField": "name",
+                        "emptyText": "Please select a plan",
+                        "fieldLabel": null,
+                        "itemId": "plancombo",
+                        "margin": "15 10 10 25",
+                        "name": "plancombo",
+                        "queryMode": "local",
+                        "store": "PackageDropDown",
+                        "valueField": "id",
+                        "width": 320
+                    },
+                    "designerId": "efb84e43-d1e1-40b2-a81a-194490d59309"
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "collapseFirst": false,
+                "collapsible": true,
+                "defaults": [
+                    "{\r",
+                    "    \r",
+                    "    'msgTarget':'under'\r",
+                    "}"
+                ],
+                "frameHeader": false,
+                "height": null,
+                "layout": "column",
+                "title": "Choose your domain and set password",
+                "width": 555
+            },
+            "designerId": "faed3890-a9ca-42db-a01b-da1cf537119b",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "Enter your domain",
+                        "fieldLabel": null,
+                        "itemId": "domain",
+                        "margin": "15 10 10 25",
+                        "name": "domain",
+                        "width": 214
+                    },
+                    "designerId": "b1953d17-912b-4d6a-ae4d-55aa2e1612a0"
+                },
+                {
+                    "type": "Ext.form.field.Display",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": null,
+                        "labelWidth": null,
+                        "margin": "15 10 10 0",
+                        "value": [
+                            "'.x______x.pixelriver.com'"
+                        ],
+                        "width": 127
+                    },
+                    "designerId": "de18da4b-ebdf-4001-93f6-dd5e818d4b62"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "checkDomain",
+                        "itemId": "checkDomain",
+                        "margin": "15 10 10 10",
+                        "text": "Check Availability",
+                        "width": 130
+                    },
+                    "designerId": "8b90edfc-c3b5-4109-8eb9-baf3ac8bef86"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "emptyText": "Password *",
+                        "fieldLabel": null,
+                        "inputType": "password",
+                        "itemId": "password",
+                        "margin": "10 10 10 25",
+                        "maxLength": 10,
+                        "minLength": 6,
+                        "name": "password",
+                        "width": 249
+                    },
+                    "designerId": "222809b9-3e12-4c3d-9dee-9dba03d1b98d"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "emptyText": "Confirm Password *",
+                        "fieldLabel": null,
+                        "inputType": "password",
+                        "itemId": "password1",
+                        "margin": "10 10 10 25",
+                        "maxLength": 10,
+                        "minLength": 6,
+                        "name": "password1",
+                        "width": 249
+                    },
+                    "designerId": "d7b2aaf0-bf34-43ce-a507-3ab71d848773",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value"
+                                ],
+                                "fn": "validator",
+                                "implHandler": [
+                                    " var password1 = this.previousSibling('[name=password]');\r",
+                                    "                    return (value === password1.getValue()) ? true : 'Passwords do not match.';"
+                                ]
+                            },
+                            "designerId": "5aa7d321-1d31-4e54-a65c-ad936c0d2131"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.field.Checkbox",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "boxLabel": "I have read and accept the <a href=\"#\" class=\"terms\">Terms of Use</a>.",
+                "fieldLabel": null,
+                "itemId": "acceptTerms",
+                "layout|anchor": "100%",
+                "margin": "15 0 0 0",
+                "name": "acceptTerms"
+            },
+            "designerId": "ef5c0d1e-70fb-4d93-b2f7-1f0f443db4c3",
+            "cn": [
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "e"
+                        ],
+                        "element": "boxLabelEl",
+                        "fn": "function",
+                        "implHandler": [
+                            "\r",
+                            "                        var target = e.getTarget('.terms'),\r",
+                            "                            win;\r",
+                            "\r",
+                            "                        e.preventDefault();\r",
+                            "                        var formPanel = this.up('panel');\r",
+                            "                        if (target) {\r",
+                            "                            win = Ext.widget('window', {\r",
+                            "                                title: 'Terms of Use',\r",
+                            "                                modal: true,\r",
+                            "                                html: ' <h2>Terms of Use</h2>  <p>Agreement between User and Pixel River, and its affiliates and subsidiaries (collectively \"Pixel River\"). This web site is offered to you, the User, conditioned upon your acceptance without modification of the terms, conditions and notices contained herein (\"Terms\"). Your use of this web site constitutes your agreement to all such terms, conditions and notices.  Sencha reserves the right to update the Terms at any time without notice to you. The most current version of the Terms can be reviewed by clicking on the \"Terms of Use\" hypertext link located at the bottom of our web pages.</p>  <h3>Description of Services</h3><P>......................................</P>',\r",
+                            "                                width: 700,\r",
+                            "                                height: 400,\r",
+                            "                                bodyStyle: 'padding: 10px 20px;',\r",
+                            "                                autoScroll: true,\r",
+                            "\r",
+                            "                                buttons: [{\r",
+                            "                                    text: 'Decline',\r",
+                            "                                    handler: function() {\r",
+                            "                                        this.up('window').close();\r",
+                            "                                        formPanel.down('[name=acceptTerms]').setValue(false);\r",
+                            "                                    }\r",
+                            "                                }, {\r",
+                            "                                    text: 'Accept',\r",
+                            "                                    handler: function() {\r",
+                            "                                        this.up('window').close();\r",
+                            "                                        formPanel.down('[name=acceptTerms]').setValue(true);\r",
+                            "                                    }\r",
+                            "                                }]\r",
+                            "                            });\r",
+                            "                            win.show();\r",
+                            "                        }\r",
+                            ""
+                        ],
+                        "name": "click",
+                        "scope": "me"
+                    },
+                    "designerId": "5bc529b2-6c3a-439d-8a3e-eed7eaaed1e1"
+                }
+            ]
+        },
+        {
+            "type": "Ext.button.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "formBind": true,
+                "itemId": "createmyaccount",
+                "margin": "10 0 0 0",
+                "scale": "medium",
+                "text": "Create My Account",
+                "width": 155
+            },
+            "designerId": "e07d9e21-e569-4a67-a4f7-01eeddb589fd"
+        }
+    ]
+}

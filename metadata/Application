@@ -1,0 +1,199 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoCreateViewport": true,
+        "controllers": [
+            "Home",
+            "Login",
+            "About",
+            "Signup",
+            "Myprofile",
+            "Logout",
+            "BaseSession",
+            "Changepassword",
+            "Myplan",
+            "Txnhistory",
+            "Forgotpassword",
+            "customers",
+            "plans",
+            "sales",
+            "feedbacks",
+            "support",
+            "passrecovery",
+            "accountconfirm"
+        ],
+        "enableRouter": true,
+        "models": [
+            "PackageDropDown"
+        ],
+        "name": "MyApp",
+        "requires": [
+            "Ext.ux.Router",
+            "Ext.layout.container.Border",
+            "Ext.window.MessageBox",
+            "Ext.layout.container.Column"
+        ],
+        "routes": [
+            "{ \r",
+            "    '/' : 'home#index',\r",
+            "    'login': 'login#Index', \r",
+            "    'about':'about#Index', \r",
+            "    'signup':'signup#Index',\r",
+            "    'myprofile':'myprofile#Index',\r",
+            "    'changepassword':'changepassword#Index',\r",
+            "    'myplan':'myplan#Index',\r",
+            "    'txnhistory':'txnhistory#Index',\r",
+            "    'forgotpassword':'forgotpassword#Index',\r",
+            "    'customers':'customers#Index',\r",
+            "    'plans':'plans#Index',\r",
+            "    'sales':'sales#Index',\r",
+            "    'feedbacks':'feedbacks#Index',\r",
+            "    'support':'support#Index',\r",
+            "    'passrecovery':'passrecovery#Index',\r",
+            "    'accountconfirm':'accountconfirm#Index'\r",
+            "}"
+        ],
+        "stores": [
+            "PackageDropDown",
+            "MyPlan.Selected",
+            "MyPlan.UnSelected",
+            "TraxnHistory"
+        ],
+        "views": [
+            "login.Index",
+            "Viewport",
+            "about.Index",
+            "signup.Index",
+            "myprofile.Index",
+            "changepassword.Index",
+            "myplan.Index",
+            "txnhistory.Index",
+            "forgotpassword.Index",
+            "customers.Index",
+            "plans.Index",
+            "sales.Index",
+            "feedbacks.Index",
+            "support.Index",
+            "passrecovery.Index",
+            "accountconfirm.Index"
+        ]
+    },
+    "configAlternates": {
+        "enableRouter": "boolean",
+        "autoCreateViewport": "boolean",
+        "routes": "object"
+    },
+    "designerId": "application",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "enableRouter",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "routes",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "autoCreateViewport",
+            "type": "string"
+        }
+    ],
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "launch",
+                "implHandler": [
+                    " /*\r",
+                    "         * Ext.ux.Router provides some events for better controlling\r",
+                    "         * dispatch flow\r",
+                    "         */\r",
+                    "\r",
+                    "//var loogedUserName =  Ext.state.Manager.get(\"loggedUserName\");\r",
+                    "//alert('on Laun'+loogedUserName);\r",
+                    "// var viewport1    = Ext.getCmp('viewport'),\r",
+                    "  //                  target1      = viewport1.down('#contentPanel');\r",
+                    "//Ext.apply(Ext.getCmp('contentPanel'), {pack: 'start'});\r",
+                    "//Ext.getCmp('contentPanel').doLayout();\r",
+                    "//Ext.apply(viewport1.down('#contentPanel')[0],  {layout:{pack: 'start'}});\r",
+                    "\r",
+                    "        Ext.ux.Router.on({\r",
+                    "\r",
+                    "            routemissed: function(token) {\r",
+                    "                Ext.Msg.show({\r",
+                    "                    title:'Error 404',\r",
+                    "                    msg: 'Route not found: ' + token,\r",
+                    "                    buttons: Ext.Msg.OK,\r",
+                    "                    icon: Ext.Msg.ERROR\r",
+                    "                });\r",
+                    "            },\r",
+                    "\r",
+                    "            beforedispatch: function(token, match, params) {\r",
+                    "                Ext.log('beforedispatch ' + token);\r",
+                    "            },\r",
+                    "\r",
+                    "            /**\r",
+                    "             * For this example I'm using the dispatch event to render the view\r",
+                    "             * based on the token. Each route points to a controller and action.\r",
+                    "             * Here I'm using these 2 information to get the view and render.\r",
+                    "             * Example:\r",
+                    "             *\r",
+                    "             *  users/:id/edit -> controller Users, action edit ->\r",
+                    "             *  renders user.Edit view.\r",
+                    "             */\r",
+                    "            dispatch: function(token, match, params, controller) {\r",
+                    "\r",
+                    "                   var view, viewClass, action,\r",
+                    "                    viewport    = Ext.getCmp('viewport'),\r",
+                    "                    target      = viewport.down('#contentPanel');\r",
+                    "                    navToolbar  = viewport.down('#menuPanel');\r",
+                    "                   sideMenu  = navToolbar.down('#sideMenu');\r",
+                    "\r",
+                    "\r",
+                    "                // adjust controller and action names\r",
+                    "                action      = Ext.String.capitalize(match.action);\r",
+                    "                controller  = match.controller.charAt(0).toLowerCase() + match.controller.substr(1);\r",
+                    "\r",
+                    "                // try to get the view by controller + action names\r",
+                    "                viewClass   = Ext.ClassManager.get('MyApp.view.' + controller + '.' + action);\r",
+                    "\r",
+                    "                if (viewClass) {\r",
+                    "\r",
+                    "                    // create view\r",
+                    "                    view = Ext.create(viewClass, {\r",
+                    "                        border: false\r",
+                    "                    });\r",
+                    "\r",
+                    "                    // clear target and add new view\r",
+                    "                    target.removeAll();\r",
+                    "                    target.add(view);\r",
+                    "\r",
+                    "                    // adjust top toolbar\r",
+                    "\r",
+                    "                   // var okk =   sideMenu.child('#Myprofile');\r",
+                    "                   // alert(controller);\r",
+                    "                    if (sideMenu.child('#' + controller)) {\r",
+                    "                        sideMenu.setActiveItem(sideMenu.child('#' + controller));\r",
+                    "                    }\r",
+                    "                }\r",
+                    "            }\r",
+                    "        });"
+                ]
+            },
+            "designerId": "e82512d7-42f2-4835-83e9-89264f69c002"
+        }
+    ]
+}

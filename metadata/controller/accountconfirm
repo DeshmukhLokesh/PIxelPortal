@@ -1,0 +1,52 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "accountconfirm"
+    },
+    "designerId": "0de426c3-3323-46c7-b883-75c572ff4aa9",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "Index",
+                "implHandler": [
+                    "this.getApplication().getController('BaseSession').EnableGuestView();\r",
+                    "\r",
+                    "//check if link is expired\r",
+                    "var urlHalves = String(document.location).split('?');\r",
+                    " var Halves = urlHalves[1].split('#');\r",
+                    "\r",
+                    "  Ext.Ajax.request({\r",
+                    "     url: 'php/accountConfirm.php',\r",
+                    "     method: 'GET',\r",
+                    "     params:{\r",
+                    "              esource: Halves[0]\r",
+                    "            },\r",
+                    "     success: function(conn, response, options, eOpts)\r",
+                    "      {\r",
+                    "           var result = MyApp.util.Util.decodeJSON(conn.responseText);\r",
+                    "\r",
+                    "           if (result.success)\r",
+                    "           {\r",
+                    "\r",
+                    "\r",
+                    "           }\r",
+                    "\r",
+                    "      }});\r",
+                    ""
+                ]
+            },
+            "designerId": "236966fc-ec78-4b2f-84d1-8cf3bf2693f3"
+        }
+    ]
+}

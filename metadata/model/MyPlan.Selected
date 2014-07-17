@@ -1,0 +1,111 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "",
+        "designer|userClassName": "MyPlan.Selected"
+    },
+    "designerId": "a3039366-3075-4ea0-a642-eab0c22ea006",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id_packages"
+            },
+            "designerId": "826e6467-421a-473a-8292-f07a5c7684a3"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "package_name"
+            },
+            "designerId": "66e8ddbb-49c0-46ef-beb1-99ee99ee41ca"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "activation_dt"
+            },
+            "designerId": "17a0804c-f2d0-46ee-ba21-f15128ad4d26"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "expire_dt"
+            },
+            "designerId": "853c4df1-a76a-4e3d-bb4c-3d2601c975fd"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "activation_fee"
+            },
+            "designerId": "44640c6c-3d2c-4f80-a4fc-d95844117df2"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "periodical_fee"
+            },
+            "designerId": "43b7e335-f5b2-4238-82c8-74f4ee080559"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "period"
+            },
+            "designerId": "f0c23582-3f7b-46b6-bc4c-3bf7b592c440"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "IsSubscribed"
+            },
+            "designerId": "636b6108-82f0-49f6-b2f1-ebcab09b93e3"
+        }
+    ]
+}

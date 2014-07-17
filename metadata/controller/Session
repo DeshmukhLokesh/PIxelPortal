@@ -1,0 +1,68 @@
+{
+    "type": "class",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Session"
+    },
+    "designerId": "7503e1ff-bc88-4c15-9fce-1bca322decd9",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "validateSession",
+                "implHandler": [
+                    "alert('Base called');\r",
+                    "Ext.Ajax.request({\r",
+                    "                url: 'php/IsSessionAlive.php',\r",
+                    "                method: 'GET',\r",
+                    "                success: function(conn, response, options, eOpts) {\r",
+                    "                    \r",
+                    "                     var appHeader = Ext.ComponentQuery.query('#headerPanel')[0];\r",
+                    "\r",
+                    "                                var tb = appHeader.down('tbfill');\r",
+                    "                                var logout = appHeader.down('#logoutMenu');\r",
+                    "                                var loginButton  = appHeader.down('#login');\r",
+                    "                                var signupButton =  appHeader.down('#signup');\r",
+                    "                    \r",
+                    "                    var result = MyApp.util.Util.decodeJSON(conn.responseText);\r",
+                    "                    if(result.success)\r",
+                    "                    {\r",
+                    "                                \r",
+                    "                                logout.setVisible(true);\r",
+                    "                                loginButton.setVisible(false);\r",
+                    "                                signupButton.setVisible(false);\r",
+                    "\r",
+                    "                                var menuPanel = Ext.ComponentQuery.query('#menuPanel')[0];\r",
+                    "\r",
+                    "                                menuPanel.setVisible(true);\r",
+                    "                    }\r",
+                    "                    else\r",
+                    "                    {\r",
+                    "                               \r",
+                    "                                logout.setVisible(false);\r",
+                    "                                loginButton.setVisible(true);\r",
+                    "                                signupButton.setVisible(true);\r",
+                    "\r",
+                    "                                var menuPanel = Ext.ComponentQuery.query('#menuPanel')[0];\r",
+                    "\r",
+                    "                                menuPanel.setVisible(false);\r",
+                    "                        \r",
+                    "                    }\r",
+                    "                     \r",
+                    "                    \r",
+                    "                }});"
+                ]
+            },
+            "designerId": "a480916f-a54c-4d5a-bd97-17befce02823"
+        }
+    ]
+}

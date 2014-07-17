@@ -1,0 +1,171 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Login",
+        "requires": [
+            "MyApp.util.Util",
+            "MyApp.util.SessionMonitor",
+            "MyApp.util.MD5"
+        ]
+    },
+    "designerId": "085bad43-9a27-4e7f-8560-5f35e153b574",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "Index",
+                "implHandler": [
+                    "this.getApplication().getController('BaseSession').EnableGuestView();\r",
+                    ""
+                ]
+            },
+            "designerId": "4e8b2d88-0d77-4f03-91b8-33771875a698"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "application"
+                ],
+                "fn": "init",
+                "implHandler": [
+                    "\r",
+                    "this.control(\r",
+                    "            {\r",
+                    "             \"login button#submit\":\r",
+                    "             {click:this.onButtonClickSubmit}\r",
+                    "            });"
+                ]
+            },
+            "designerId": "70f7ae69-067f-41f8-b457-f332bdd5360b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button",
+                    "e",
+                    "options"
+                ],
+                "fn": "onButtonClickSubmit",
+                "implHandler": [
+                    "\r",
+                    "var formPanel = button.up('form'),\r",
+                    "             login = button.up('login'),\r",
+                    "              errorBox =formPanel.down('#loginErrorBox'),\r",
+                    "             user = formPanel.down('textfield[name=user]').getValue(),\r",
+                    "             pass = formPanel.down('textfield[name=password]').getValue();\r",
+                    "\r",
+                    "        //  alert(errorBox);\r",
+                    "        if(formPanel.getForm().isValid())\r",
+                    "        {\r",
+                    "            Ext.get(login.getEl()).mask(\"Authenticating...\", 'loading');\r",
+                    "            Ext.Ajax.request(\r",
+                    "                {\r",
+                    "                url:'php/checkLogin.php',\r",
+                    "                params:\r",
+                    "                {user:user,\r",
+                    "                 password:MyApp.util.MD5.encode(pass)\r",
+                    "                },\r",
+                    "                 success: function(conn, response, options, eOpts) {\r",
+                    "\r",
+                    "                           Ext.get(login.getEl()).unmask();\r",
+                    "\r",
+                    "                            var result = MyApp.util.Util.decodeJSON(conn.responseText);\r",
+                    "\r",
+                    "                            if (result.success) {\r",
+                    "\r",
+                    "                                MyApp.util.SessionMonitor.start();\r",
+                    "                                Ext.state.Manager.set(\"loggedUserName\", user);\r",
+                    "                                Ext.state.Manager.set(\"IsUserloggedIn\", 'YES');\r",
+                    "                                var appHeader = Ext.ComponentQuery.query('#headerPanel')[0];\r",
+                    "\r",
+                    "                                var tb = appHeader.down('tbfill');\r",
+                    "                                var logout = appHeader.down('#logoutMenu');\r",
+                    "\r",
+                    "                                var loginButton  = appHeader.down('#login');\r",
+                    "                                var signupButton =  appHeader.down('#signup');\r",
+                    "                                logout.setText(Ext.state.Manager.get(\"loggedUserName\"));\r",
+                    "                                logout.setVisible(true);\r",
+                    "                                loginButton.setVisible(false);\r",
+                    "                                signupButton.setVisible(false);\r",
+                    "\r",
+                    "                                var menuPanel = Ext.ComponentQuery.query('#menuPanel')[0];\r",
+                    "\r",
+                    "                                menuPanel.setVisible(true);\r",
+                    "\r",
+                    "\r",
+                    "                              //var contentPanel = Ext.ComponentQuery.query('#contentPanel')[0];\r",
+                    "                             //   contentPanel.destroy();\r",
+                    "\r",
+                    "                              // Ext.create('MyApp.view.contentPanel', {pack:'start'});\r",
+                    "\r",
+                    "\r",
+                    "                             // Ext.apply(Ext.ComponentQuery.query('#contentPanel')[0], {pack:'start'});\r",
+                    "\r",
+                    "                             // appHeader.down('#profileHeaderImage').setSrc('resources/ProfileImages/profile_106.jpg');\r",
+                    "\r",
+                    "\r",
+                    "                              Ext.Router.redirect('myprofile');\r",
+                    "\r",
+                    "\r",
+                    "                            }\r",
+                    "                          else {\r",
+                    "                                errorBox.setText(\"Incorrect Email Address or Password\", false);\r",
+                    "                                errorBox.show();\r",
+                    "                               /* Ext.Msg.show\r",
+                    "                                    ({\r",
+                    "                                    title:'Error!',\r",
+                    "                                    msg:\"Incorrect Email Address or Password\",\r",
+                    "                                    icon:Ext.Msg.ERROR,\r",
+                    "                                    buttons:Ext.Msg.OK\r",
+                    "                                    });\r",
+                    "                                   */\r",
+                    "\r",
+                    "\r",
+                    "                            }\r",
+                    "                        },\r",
+                    "                   failure:function(conn,response,options,eOpts)\r",
+                    "                    {\r",
+                    "                       Ext.get(login.getEl()).unmask();\r",
+                    "\r",
+                    "                        Ext.Msg.show\r",
+                    "                        ({\r",
+                    "                        title:'Error!',\r",
+                    "                        msg:conn.responseText,\r",
+                    "                        icon:Ext.Msg.ERROR,\r",
+                    "                        buttons:Ext.Msg.OK\r",
+                    "                        });\r",
+                    "\r",
+                    "\r",
+                    "\r",
+                    "                    }\r",
+                    "                }\r",
+                    "               );\r",
+                    "        }"
+                ]
+            },
+            "designerId": "455dd385-6df4-4616-be87-b50beff1beb8"
+        }
+    ]
+}

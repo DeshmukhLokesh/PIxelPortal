@@ -1,0 +1,122 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": 10,
+        "container|columns": 1,
+        "defaults": [
+            "{\r",
+            "    'margin':'5 10 10 20',\r",
+            "    'msgTarget':'under'\r",
+            "    \r",
+            "}"
+        ],
+        "designer|userAlias": "passrecovery",
+        "designer|userClassName": "passrecovery.Index",
+        "height": 250,
+        "layout": "table",
+        "title": "Reset Password",
+        "titleAlign": "center",
+        "width": 331
+    },
+    "designerId": "cd27a6c8-d9f3-4414-8c76-0956ae5f8af9",
+    "cn": [
+        {
+            "type": "Ext.form.field.Display",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": null,
+                "itemId": "resetpassmsg",
+                "value": [
+                    "'Please enter your new password here.'"
+                ]
+            },
+            "designerId": "1e1ec0dc-1667-426f-bf8b-f2af5acc84ab"
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "allowBlank": false,
+                "allowOnlyWhitespace": false,
+                "emptyText": "Password",
+                "fieldLabel": null,
+                "inputType": "password",
+                "itemId": "password",
+                "maxLength": 10,
+                "minLength": 6,
+                "name": "password",
+                "width": 268
+            },
+            "designerId": "802a46ca-3a1e-434d-a1f6-f5b6ffb6cc7f"
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "allowBlank": false,
+                "allowOnlyWhitespace": false,
+                "emptyText": "Confirm Password",
+                "fieldLabel": null,
+                "inputType": "password",
+                "itemId": "confirmPassword",
+                "name": "confirmPassword",
+                "width": 266
+            },
+            "designerId": "1601ee31-e933-4753-b4a2-0b7f7ee8015e",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "value"
+                        ],
+                        "fn": "validator",
+                        "implHandler": [
+                            " var password1 = this.previousSibling('[name=password]');\r",
+                            "                    return (value === password1.getValue()) ? true : 'Passwords do not match.';"
+                        ]
+                    },
+                    "designerId": "4acce875-5b1a-493b-9615-7d0a61746344"
+                }
+            ]
+        },
+        {
+            "type": "Ext.button.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "formBind": true,
+                "itemId": "resetpasssubmit",
+                "margin": "10 0 0 210",
+                "text": "Submit",
+                "width": 75
+            },
+            "designerId": "b278613a-fe88-4b6b-8161-790b44101b96"
+        }
+    ]
+}

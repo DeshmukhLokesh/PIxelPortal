@@ -1,0 +1,151 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Myprofile"
+    },
+    "designerId": "6ac96860-c240-489a-8a8e-a63975c4f31a",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "Index",
+                "implHandler": [
+                    "\r",
+                    "this.getApplication().getController('BaseSession').ValidateSession();\r",
+                    "\r",
+                    "\r",
+                    "/*\r",
+                    "Ext.Ajax.request({\r",
+                    "                url: 'php/IsSessionAlive.php',\r",
+                    "                method: 'GET',\r",
+                    "                success: function(conn, response, options, eOpts) {\r",
+                    "                    var response = MyApp.util.Util.decodeJSON(conn.responseText);\r",
+                    "                    if(response.success)\r",
+                    "                    {\r",
+                    "                              var appHeader = Ext.ComponentQuery.query('#headerPanel')[0];\r",
+                    "\r",
+                    "                                var tb = appHeader.down('tbfill');\r",
+                    "                                var logout = appHeader.down('#logoutMenu');\r",
+                    "                                var loginButton  = appHeader.down('#login');\r",
+                    "                                var signupButton =  appHeader.down('#signup');\r",
+                    "                                //logout.setValue('New User');\r",
+                    "                                logout.setVisible(true);\r",
+                    "                                loginButton.setVisible(false);\r",
+                    "                                signupButton.setVisible(false);\r",
+                    "\r",
+                    "                                var menuPanel = Ext.ComponentQuery.query('#menuPanel')[0];\r",
+                    "\r",
+                    "                                menuPanel.setVisible(true);\r",
+                    "                    }\r",
+                    "                    else\r",
+                    "                    {\r",
+                    "                         Ext.Router.redirect('login');\r",
+                    "\r",
+                    "                    }\r",
+                    "\r",
+                    "\r",
+                    "                }});\r",
+                    "                    */"
+                ]
+            },
+            "designerId": "17c098b6-a874-4206-abf6-c9168491d4bd"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "application"
+                ],
+                "fn": "init",
+                "implHandler": [
+                    "this.control(\r",
+                    "            {\r",
+                    "             \"myprofile button#saveprofile\":\r",
+                    "             {click:this.onButtonClickSaveProfile}\r",
+                    "            });"
+                ]
+            },
+            "designerId": "82399fdf-48cc-48d9-99ca-5c475ac0b09b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button",
+                    "e",
+                    "options"
+                ],
+                "fn": "onButtonClickSaveProfile",
+                "implHandler": [
+                    "\r",
+                    "// var win = button.up('window'),\r",
+                    "    //    formPanel = win.down('form'),\r",
+                    "    //    store = this.getUsersList().getStore();\r",
+                    " var formPanel = button.up('form');\r",
+                    "        if (formPanel.getForm().isValid()) {\r",
+                    "\r",
+                    "            formPanel.getForm().submit({\r",
+                    "                clientValidation: true,\r",
+                    "                url: 'php/clients/saveProfile.php',\r",
+                    "                success: function(form, action) {\r",
+                    "\r",
+                    "                    var result = action.result;\r",
+                    "\r",
+                    "                    console.log(result);\r",
+                    "\r",
+                    "                    if (result.success) {\r",
+                    "\r",
+                    "                         Ext.Msg.alert('Success', 'Changes saved successfully');\r",
+                    "                        \r",
+                    "                        var appHeader = Ext.ComponentQuery.query('#headerPanel')[0];\r",
+                    "                        var profileHeaderImage = appHeader.down('#profileHeaderImage');\r",
+                    "                        profileHeaderImage.setSrc('resources/ProfileImages/'+result.profilePicture);\r",
+                    "                        \r",
+                    "                     //   store.load();\r",
+                    "                     //   win.close();\r",
+                    "\r",
+                    "                    } else {\r",
+                    "                        //Packt.util.Util.showErrorMsg(result.msg);\r",
+                    "                         Ext.Msg.alert(result.msg);\r",
+                    "                    }\r",
+                    "                },\r",
+                    "                failure: function(form, action) {\r",
+                    "                    switch (action.failureType) {\r",
+                    "                        case Ext.form.action.Action.CLIENT_INVALID:\r",
+                    "                            Ext.Msg.alert('Failure', 'Form fields may not be submitted with invalid values');\r",
+                    "                            break;\r",
+                    "                        case Ext.form.action.Action.CONNECT_FAILURE:\r",
+                    "                            Ext.Msg.alert('Failure', 'Ajax communication failed');\r",
+                    "                            break;\r",
+                    "                        case Ext.form.action.Action.SERVER_INVALID:\r",
+                    "                            Ext.Msg.alert('Failure', action.result.msg);\r",
+                    "                   }\r",
+                    "                }\r",
+                    "            });\r",
+                    "        }"
+                ]
+            },
+            "designerId": "2611d800-3666-4fff-b02a-4b61adacd46b"
+        }
+    ]
+}
